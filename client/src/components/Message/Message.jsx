@@ -22,7 +22,6 @@ class App extends Component {
         chat: [...this.state.chat, payload ],
       })
       console.log(this.state.chat,"test")
-      window.localStorage.setItem('myname', payload.username)
     })
     socket.on('welcome', welcomeMessage => {
       this.setState({ welcomeMessage: welcomeMessage})
@@ -39,7 +38,7 @@ class App extends Component {
     const userMessage = e.target.message.value
     const username = this.state.username
     const timestamp = Date.now()
-    socket.emit("message", { username, userMessage, timestamp })
+    socket.emit("message", { name: username, message: userMessage, timestamp: timestamp })
     this.setState({
       // message: "",
       //myMessages: [...this.state.myMessages,userMessage],

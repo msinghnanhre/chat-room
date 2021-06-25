@@ -3,7 +3,7 @@ import sendIcon from '../../assets/icons/sendIcon.svg'
 
 const ChatForm = (props) => {
     return(
-        <from className="form" onSubmit={props.submitHandler}>
+        <form className="form" onSubmit={props.submitHandler}>
             {/* <input className="form__name-input" name="username" placeholder="enter name to start" required/> */}
             <textarea 
                 className="form__input" 
@@ -13,10 +13,10 @@ const ChatForm = (props) => {
                 onChange={(e) => props.changeHandler(e)}
                 placeholder="your message" 
                 required/>
-            <button className="form__submit">
+            <button className="form__submit" type="submit">
                 <img className="form__submit-icon" src={sendIcon} alt="sending icon"/>
             </button>
-        </from>
+        </form>
     )
 }
 

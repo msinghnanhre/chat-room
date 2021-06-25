@@ -38,9 +38,10 @@ class App extends Component {
     return (<>
 
         <section className="message-container">
-            <ChatDisplay myMessage={this.state.myMessages} chat={this.state.chat}/>
+            <ChatDisplay myMessages={this.state.myMessages} chat={this.state.chat}/>
             <ChatForm submitHandler={this.sendMessage} changeHandler={this.handleChange} message={this.state.message} />
         </section>
+    
 
       <div className="App">
         {/* <form
@@ -72,7 +73,7 @@ class App extends Component {
           </div>
         </form> */}
 
-        <section className="chat__section">
+        {/* <section className="chat__section">
             <div className="chat__left">
                 {this.state.myMessages.map((message,index) => {
                 return (
@@ -95,7 +96,7 @@ class App extends Component {
                 )
                 })}
             </div>
-        </section>
+        </section> */}
       </div>
       </>
     )

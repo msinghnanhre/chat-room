@@ -39,6 +39,19 @@
         border-radius: 1rem;
         margin: 0.2rem 0.5rem 0.2rem 0;
         align-self: flex-end;
+        animation: new-message 0.4s;
+
+        @keyframes new-message {
+            0%{
+                transform: translateY(40px);
+            }
+            70%{
+                transform: translateY(-5px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
     }
     &__message-left{
         background-color:rgb(255, 255, 255);
@@ -47,5 +60,10 @@
         border-radius: 1rem;
         margin: 0.2rem 0 0.2em 0.5rem;
         align-self: flex-start;
+    }
+
+    &__message-name{
+        font-size: 0.8rem;
+        color:$label-color;
     }
 }

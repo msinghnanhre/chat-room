@@ -10,7 +10,7 @@ const ChatDisplay = (props) => {
                 Chatroom
             </h2>
 
-            <h5 className="display-box__">{props.welcome}</h5>
+            <h5 className="display-box__message">{props.welcome}</h5>
 
             {props.chat.map((payload, index) => {
             return (

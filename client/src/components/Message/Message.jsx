@@ -38,12 +38,12 @@ class App extends Component {
     return (<>
 
         <section className="message-container">
-             <ChatDisplay/>
-            <ChatForm/>
+            <ChatDisplay myMessage={this.state.myMessages} chat={this.state.chat}/>
+            <ChatForm submitHandler={this.sendMessage} changeHandler={this.handleChange} message={this.state.message} />
         </section>
 
       <div className="App">
-        <form
+        {/* <form
           className="form"
           onSubmit={this.sendMessage}>
           <input
@@ -70,30 +70,31 @@ class App extends Component {
               className="form__submit"
             >Send</button>
           </div>
-        </form>
+        </form> */}
+
         <section className="chat__section">
-        <div className="chat__left">
-        {this.state.myMessages.map((message,index) => {
-          return (
-            <div className="user" key={index}>
-              <h4 className="user__message">{message}</h4>
-              <span className="user__name">Me</span>
+            <div className="chat__left">
+                {this.state.myMessages.map((message,index) => {
+                return (
+                    <div className="user" key={index}>
+                    <h4 className="user__message">{message}</h4>
+                    <span className="user__name">Me</span>
+                    </div>
+                )
+                })}
             </div>
-          )
-        })}
-        </div>
-        <div className="chat__right">
-        {this.state.chat.map((payload, index) => {
-          return (
-            <div
-              className="user"
-              key={index}>
-              <h4 className="user__message"> {payload.userMessage}</h4>
-              <span className="user__name user__name--sender"> {payload.username}</span>
-            </div> 
-          )
-        })}
-        </div>
+            <div className="chat__right">
+                {this.state.chat.map((payload, index) => {
+                return (
+                    <div
+                    className="user"
+                    key={index}>
+                    <h4 className="user__message"> {payload.userMessage}</h4>
+                    <span className="user__name user__name--sender"> {payload.username}</span>
+                    </div> 
+                )
+                })}
+            </div>
         </section>
       </div>
       </>

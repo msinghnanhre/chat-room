@@ -8,9 +8,9 @@ const ChatDisplay = () =>{
             <h2 className="display-box__title">
                 Chatroom
             </h2>
-            <p className="display-box__message-right">this is a message</p>
+            {/* <p className="display-box__message-right">this is a message</p>
             <p className="display-box__message-left">this is a message</p>
-            <p className="display-box__message-left">this is a message and a very long one.</p>
+            <p className="display-box__message-left">this is a message and a very long one.</p> */}
         </section>
     )
 }

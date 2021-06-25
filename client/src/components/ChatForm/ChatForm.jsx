@@ -1,12 +1,21 @@
 import './ChatForm.scss'
 import sendIcon from '../../assets/icons/sendIcon.svg'
 
-const ChatForm = () => {
+const ChatForm = (props) => {
     return(
-        <from className="form">
-            <textarea className="form__input" name="message" placeholder="your message"/>
-            <button className="form__submit"><img className="form__submit-icon" src={sendIcon} alt="sending icon"/></button>
-            
+        <from className="form" onSubmit={props.submitHandler}>
+            {/* <input className="form__name-input" name="username" placeholder="enter name to start" required/> */}
+            <textarea 
+                className="form__input" 
+                type="text" 
+                name="message" 
+                value={props.message}
+                onChange={(e) => props.changeHandler(e)}
+                placeholder="your message" 
+                required/>
+            <button className="form__submit">
+                <img className="form__submit-icon" src={sendIcon} alt="sending icon"/>
+            </button>
         </from>
     )
 }

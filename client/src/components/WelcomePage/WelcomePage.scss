@@ -1,0 +1,60 @@
+@use '../../partials/colors' as *;
+
+.welcome{
+
+    &__container{
+        width: 25rem;
+        height: 45rem;
+        border-radius: 1rem;
+        background-color: $primary-color;
+        overflow: hidden;
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+        justify-content:center ;
+        align-items: center;
+    }
+
+    &__input{
+        width: 95%;
+        height: 3rem;
+        border-radius: 1rem;
+        padding-left: 1rem;
+        border:none;
+        background: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        
+
+        &:focus{
+            outline: none;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+        }
+
+        &::placeholder{
+            color:$label-color;
+        }
+    }
+
+    &__submit{
+        margin-top: 1rem;
+        margin-right:1rem;
+        width: 10rem;
+        height:3rem;
+        font-size: 1.5rem;
+        border:2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 1rem;
+        background-color: $secondary-color;
+        color:$label-color;
+
+        &:hover{
+            transition: 0.8s ease;
+            background-color:$primary-color;
+            color: white;
+        }
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+}

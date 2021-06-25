@@ -1,6 +1,7 @@
 @use '../../partials/colors' as *;
 
 .welcome{
+    
 
     &__container{
         width: 25rem;
@@ -8,6 +9,7 @@
         border-radius: 1rem;
         background-color: $primary-color;
         overflow: hidden;
+        box-shadow: $shadow;
     }
 
     &__form{
@@ -18,7 +20,8 @@
     }
 
     &__input{
-        width: 95%;
+        margin-top:2rem;
+        width: 90%;
         height: 3rem;
         border-radius: 1rem;
         padding-left: 1rem;
@@ -45,12 +48,12 @@
         border:2px solid rgba(255, 255, 255, 0.7);
         border-radius: 1rem;
         background-color: $secondary-color;
-        color:$label-color;
+        color: $primary-color;
 
         &:hover{
             transition: 0.8s ease;
-            background-color:$primary-color;
-            color: white;
+            transform: scale(1.05);
+            
         }
         &:active{
             transform: scale(0.9);

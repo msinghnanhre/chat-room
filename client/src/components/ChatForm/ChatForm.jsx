@@ -9,7 +9,6 @@ const ChatForm = (props) => {
                 type="text" 
                 name="message" 
                 value={props.message}
-                // onChange={(e) => props.changeHandler(e)}
                 placeholder="your message" 
                 required/>
             <button className="form__submit" type="submit">

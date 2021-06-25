@@ -1,3 +1,5 @@
+const { fstat } = require('fs');
+
 const express = require('express')()
 const app = require('http').createServer(express);
 const io = require('socket.io')(app, {
@@ -19,6 +21,7 @@ io.on('connection', (socket) => {
         console.log("message received ", payload)
         socket.broadcast.emit('message', payload)
     })
+    // fs.wrtieFile
 })
 
 io.listen(8080, () => {

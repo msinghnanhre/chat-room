@@ -2,7 +2,7 @@ import backIcon from '../../assets/icons/backIcon.svg'
 import './ChatDisplay.scss'
 
 const ChatDisplay = (props) => {
-    console.log(props.chat)
+
     return(
         <section className="display-box">
             <button className="display-box__back-btn"><img className="display-box__back-icon" src={backIcon} alt="sending icon"/></button>

@@ -11,7 +11,6 @@ class App extends Component {
     username: this.props.match.params.username,
     chat: [],
   }
-
   componentDidMount = () => {
     socket.on('message', payload => {
       this.setState({

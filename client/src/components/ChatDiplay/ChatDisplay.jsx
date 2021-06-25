@@ -2,10 +2,14 @@ import backIcon from '../../assets/icons/backIcon.svg'
 import './ChatDisplay.scss'
 
 const ChatDisplay = (props) => {
+    
+    const backbtn = () => {
+        props.history.push("/")
+    }
 
     return(
         <section className="display-box">
-            <button className="display-box__back-btn"><img className="display-box__back-icon" src={backIcon} alt="sending icon"/></button>
+            <button className="display-box__back-btn" onClick={backbtn}><img className="display-box__back-icon" src={backIcon} alt="sending icon"/></button>
             <h2 className="display-box__title">
                 Chatroom
             </h2>

@@ -8,12 +8,8 @@ const socket = io('http://localhost:8080')
 
 class App extends Component {
   state = {
-    // message: "",
-    // myId: '',
-    // myMessages: [],
     username: this.props.match.params.username,
     chat: [],
-    // welcomeMessage: ''
   }
 
   componentDidMount = () => {
@@ -28,20 +24,14 @@ class App extends Component {
     })
   }
   
-  // handleChange = (e) => {
-  //   this.setState({ [e.target.name]: e.target.value})
-  // }
 
   sendMessage = (e) => {
-    // console.log(this.state.username)
     e.preventDefault();
     const userMessage = e.target.message.value
     const username = this.state.username
     const timestamp = Date.now()
     socket.emit("message", { name: username, message: userMessage, timestamp: timestamp })
     this.setState({
-      // message: "",
-      //myMessages: [...this.state.myMessages,userMessage],
       chat: [...this.state.chat, { name: username, message: userMessage, timestamp:  timestamp }],
     }) 
     }

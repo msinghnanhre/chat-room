@@ -7,7 +7,7 @@ const socket = io('http://localhost:8080')
 
 const WelcomePage = (props) => {
     const hiAnimate = {
-        loop: true,
+        loop: false,
         autoplay: true,
         animationData: hi,
         rendererSettings: {

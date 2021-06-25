@@ -19,8 +19,10 @@ var users = {
 }
 
 io.on('connection', (socket) => {
+    socket.broadcast.emit("hello", "world")
     socket.on('message', payload => {
-        socket.broadcast.emit('message', (socket.id, payload))
+        socket.broadcast.emit('message', (payload))
+        console.log(payload)
         // write messages to messages.json
         // fs.readFile('./data/messages.json', 'utf8', function readFileCallback(err, data) {
         //     if (err) {
@@ -39,6 +41,7 @@ io.on('connection', (socket) => {
         //     }
         // });
     })
+    
 
     // welcome new user
     socket.emit('welcome', "Welcome to ChatApp");

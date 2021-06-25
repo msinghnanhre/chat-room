@@ -65,7 +65,13 @@ io.on('connection', (socket) => {
                 users = JSON.parse(data)
                 users.name.push(newUser); //add some data
                 userList = JSON.stringify(users, null, 2); //convert it back to json
-                fs.writeFile('./data/users.json', userList, 'utf8')
+                fs.writeFile('./data/users.json', userList, 'utf8', (err) => {
+                    if (err) {
+                        rej('could not write to file');
+                    } else {
+                        res('successfully updated messages');
+                    }
+                })
             }
         });   
     })

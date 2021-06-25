@@ -13,10 +13,16 @@ const ChatDisplay = (props) => {
             <h5 className="display-box__message">{props.welcome}</h5>
 
             {props.chat.map((payload, index) => {
+                const date = new Date(payload.timestamp)
+                const hours = date.getHours()
+                const minutes = date.getMinutes()
+                console.log(date.getHours())
+                console.log(date.getMinutes())
             return (
                 <div className={props.match.params.username === payload.name ? "display-box__message-right" : "display-box__message-left" } key={index}>
                     <span className="display-box__message-name"> {props.match.params.username === payload.name ?  "Me" : payload.name }</span>
-                    <h4 className="display-box__message-text"> {props.match.params.username === payload.name ?  payload.message : payload.message }</h4>
+                    <h4 className="display-box__message-text"> {props.match.params.username === payload.name ? payload.message : payload.message}</h4>
+                    <span>at {`${hours}:${minutes}`}</span>
                 </div> 
             )
             })}

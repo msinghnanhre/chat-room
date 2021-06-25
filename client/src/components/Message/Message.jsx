@@ -32,7 +32,8 @@ class App extends Component {
     this.setState({
       chat: [...this.state.chat, { name: username, message: userMessage, timestamp:  timestamp }],
     }) 
-    }
+    e.target.reset()
+  }
     
   render() {
     return (

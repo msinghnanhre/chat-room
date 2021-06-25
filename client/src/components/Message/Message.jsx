@@ -19,12 +19,12 @@ class App extends Component {
       this.setState({ chat: [...this.state.chat, payload] })
     })
   }
+  
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value})
   }
 
   sendMessage = (e) => {
-      //console.log(socket.id())
     const userMessage = this.state.message
     const username = this.state.username
     socket.emit("message", { username, userMessage })

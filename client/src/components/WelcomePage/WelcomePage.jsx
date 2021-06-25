@@ -1,11 +1,11 @@
 import Lottie from 'react-lottie';
-import hi from '../../assets/animations/hi.json'
+import hi from '../../assets/animations/hi-sec.json'
 import {Redirect} from 'react-router-dom'
 import './WelcomePage.scss'
 
 const WelcomePage = (props) => {
     const hiAnimate = {
-        loop: false,
+        loop: true,
         autoplay: true,
         animationData: hi,
         rendererSettings: {

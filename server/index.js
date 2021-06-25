@@ -15,11 +15,16 @@ var obj = {
     message: []
 };
 
+var users = {
+    name: []
+}
+    
+
+
 io.on('connection', (socket) => {
     //console.log(socket.id)
     socket.on('message', payload => {
         socket.broadcast.emit('message', payload)
-
         // write messages to messages.json
         fs.readFile('./data/messages.json', 'utf8', function readFileCallback(err, data) {
             if (err) {
@@ -49,9 +54,21 @@ io.on('connection', (socket) => {
     //socket.on('disconnect', () => {
     //io.emit('message', "A user has left the chat")
     // })
-    // socket.on('login', user => {
-    //     console.log(user)
-    // })
+
+    //add user names from log in page
+    socket.on('login', (newUser) => {
+        console.log(newUser)
+        fs.readFile('./data/users.json', 'utf8', (err, data) => {
+            if (err) {
+                console.log(err);
+            } else {
+                users = JSON.parse(data)
+                users.name.push(newUser); //add some data
+                userList = JSON.stringify(users, null, 2); //convert it back to json
+                fs.writeFile('./data/users.json', userList, 'utf8')
+            }
+        });   
+    })
 })
 
 io.listen(8080, () => {

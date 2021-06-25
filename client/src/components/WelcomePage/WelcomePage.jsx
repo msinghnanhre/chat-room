@@ -20,6 +20,7 @@ const WelcomePage = (props) => {
         e.preventDefault()
         const newUser = e.target.username.value
         props.history.push(`/message/${newUser}`)
+        socket.emit('login', { newUser })
     }
 
     return (

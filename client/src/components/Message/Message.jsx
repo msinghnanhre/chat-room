@@ -16,7 +16,6 @@ class App extends Component {
       this.setState({
         chat: [...this.state.chat, payload ],
       })
-      console.log(this.state.chat,"test")
     })
     socket.on('welcome', welcomeMessage => {
       this.setState({ welcomeMessage: welcomeMessage})
@@ -30,7 +29,7 @@ class App extends Component {
     socket.emit("message", { name: username, message: userMessage, timestamp: timestamp })
     this.setState({
       chat: [...this.state.chat, { name: username, message: userMessage, timestamp:  timestamp }],
-    }) 
+    })  
     e.target.reset()
   }
     

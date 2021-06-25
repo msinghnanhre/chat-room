@@ -1,4 +1,5 @@
-import {Component} from 'react'
+import { Component } from 'react'
+import Login from "./components/Login/Login"
 import './App.scss';
 import io from "socket.io-client"
 
@@ -35,6 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="chat">
+        <Login />
         <h1>Welcome</h1>
         <form
           className="form"

@@ -1,0 +1,9 @@
+@use '../../partials/colors' as *;
+
+.message-container{
+    width: 25rem;
+    height: 45rem;
+    border-radius: 1rem;
+    background-color: $primary-color;
+    overflow: hidden;
+}

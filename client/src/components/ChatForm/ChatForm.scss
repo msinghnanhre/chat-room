@@ -1,0 +1,53 @@
+@use '../../partials/colors.scss' as *;
+
+.form{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+
+
+    &__input{
+        width: 95%;
+        height: 4.5rem;
+        border-radius: 1rem;
+        padding: 1rem 4rem 0 1rem;
+        border-color: white;
+        background: rgba(255, 255, 255, 0.9);
+        font-size: 1rem;
+
+        &:focus{
+            outline: none;
+        }
+
+        &::placeholder{
+            color:rgb(138, 136, 136);
+        }
+    }
+
+    &__submit{
+        position: absolute;
+        right:1.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        border:2px solid rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        background-color: $secondary-color;
+
+        &:hover{
+            transition: 0.8s ease;
+            background-color:$primary-color;
+        }
+        &:active{
+            transform: scale(0.9);
+        }
+    }
+
+    &__submit-icon {
+        vertical-align: middle;
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}

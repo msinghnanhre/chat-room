@@ -1,10 +1,13 @@
+<<<<<<< HEAD
 import { Component } from 'react'
 import Login from "./components/Login/Login"
+=======
+import Message from './components/Message/Message';
+>>>>>>> 25dfc13f2f751be3a220cded7710878a3810d0e3
 import './App.scss';
-import io from "socket.io-client"
 
-const socket = io('http://localhost:8080')
 
+<<<<<<< HEAD
 class App extends Component {
   state = {
     message: "",
@@ -93,6 +96,14 @@ class App extends Component {
       </div>
     )
   }
+=======
+function App() {
+  return (
+    <div className="App">
+      <Message />
+    </div>
+  );
+>>>>>>> 25dfc13f2f751be3a220cded7710878a3810d0e3
 }
 
 export default App;

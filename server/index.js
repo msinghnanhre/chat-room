@@ -1,3 +1,5 @@
+const { fstat } = require('fs');
+
 const express = require('express')()
 const app = require('http').createServer(express);
 const fs = require("fs")
@@ -44,6 +46,7 @@ io.on('connection', (socket) => {
             }
         });
     })
+    // fs.wrtieFile
 })
 
 io.listen(8080, () => {

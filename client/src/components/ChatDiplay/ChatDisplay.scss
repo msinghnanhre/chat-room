@@ -1,0 +1,69 @@
+@use '../../partials/colors.scss' as *;
+@use '../../partials/typography.scss' as *;
+
+.display-box{
+    position: relative;
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    height:40rem;
+    background-color: $primary-color;
+    padding:1rem 0;
+
+    &__back-btn{
+        position: absolute;
+        left:1.5rem;
+        top:1.5rem;
+        width: 2rem;
+        height:2rem;
+        border:none;
+        background-color: $primary-color;
+    }
+
+    &__back-icon {
+        width: 1.2rem;
+        height:1.2rem;
+    }
+
+    &__title{
+        color:white;
+        text-align: center;
+        margin-bottom: 1rem;
+        font-weight: $normal-weight;
+    }
+
+    &__message-right{
+        background-color:$primary-aceent-color;
+        max-width: 60%;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        margin: 0.2rem 0.5rem 0.2rem 0;
+        align-self: flex-end;
+        animation: new-message 0.4s;
+
+        @keyframes new-message {
+            0%{
+                transform: translateY(40px);
+            }
+            70%{
+                transform: translateY(-5px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+    }
+    &__message-left{
+        background-color:rgb(255, 255, 255);
+        max-width: 60%;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        margin: 0.2rem 0 0.2em 0.5rem;
+        align-self: flex-start;
+    }
+
+    &__message-name{
+        font-size: 0.8rem;
+        color:$label-color;
+    }
+}

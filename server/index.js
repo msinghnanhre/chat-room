@@ -1,52 +1,57 @@
-const { fstat } = require('fs');
 
-const express = require('express')()
-const app = require('http').createServer(express);
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app);
 const fs = require("fs")
 //const data = require("./data.json")
-const io = require('socket.io')(app, {
-    cors: {
-        origin: '*',
-    }
-})
+const io = require('socket.io')
+    (server, {
+        cors: {
+            origin: '*',
+        }
+    })
 
 var obj = {
-    table: []
+    message: []
 };
 
 io.on('connection', (socket) => {
     //console.log(socket.id)
     socket.on('message', payload => {
-
         socket.broadcast.emit('message', payload)
-        //const newData = ({ id: socket.id, username: payload.username, message: payload.userMessage })
 
-        // const stringData = JSON.stringify(newData);
-
-        obj.table.push({ id: socket.id, username: payload.username, message: payload.userMessage });
-        let json = JSON.stringify(obj)
-
-        // const data = fs.readFile("./data.json", 'utf8')
-        // console.log(data)
-        fs.writeFile('./data.json', json, 'utf8', (err) => {
-            if (err) {
-                rej('could not write to file');
-            } else {
-                res('successfully updated tweets');
-            }
-        })
-        fs.readFile('./data.json', 'utf8', function readFileCallback(err, data) {
+        // write messages to messages.json
+        fs.readFile('./data/messages.json', 'utf8', function readFileCallback(err, data) {
             if (err) {
                 console.log(err);
             } else {
-                obj = JSON.parse(data); //now it an object
-                obj.table.push({ id: 2, square: 3 }); //add some data
-                json = JSON.stringify(obj); //convert it back to json
-                fs.writeFile('myjsonfile.json', json, 'utf8', callback); // write it back 
+                obj = JSON.parse(data)
+                obj.message.push({ id: socket.id, message: payload.userMessage }); //add some data
+                json = JSON.stringify(obj, null, 2); //convert it back to json
+                fs.writeFile('./data/messages.json', json, 'utf8', (err) => {
+                    if (err) {
+                        rej('could not write to file');
+                    } else {
+                        res('successfully updated messages');
+                    }
+                })
             }
         });
     })
-    // fs.wrtieFile
+
+    // welcome new user
+    socket.emit('welcome', "Welcome to ChatApp");
+
+    //broadcast when user connects
+    socket.broadcast.emit('userConnected', 'A user joined the chat')
+
+    //say bye to disconnected user 
+    //socket.on('disconnect', () => {
+    //io.emit('message', "A user has left the chat")
+    // })
+    // socket.on('login', user => {
+    //     console.log(user)
+    // })
 })
 
 io.listen(8080, () => {

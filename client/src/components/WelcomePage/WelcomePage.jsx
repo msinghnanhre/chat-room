@@ -1,7 +1,10 @@
 import Lottie from 'react-lottie';
 import hi from '../../assets/animations/hi.json'
+import io from "socket.io-client"
 import {Redirect} from 'react-router-dom'
 import './WelcomePage.scss'
+
+const socket = io('http://localhost:8080')
 
 const WelcomePage = (props) => {
     const hiAnimate = {

@@ -1,9 +1,10 @@
 import Lottie from 'react-lottie';
 import hi from '../../assets/animations/hi-sec.json'
 import io from "socket.io-client"
+import hisecond from "../../assets/animations/hisecond.json"
 import './WelcomePage.scss'
 
-const socket = io('http://localhost:8080')
+const socket = io('wss://chat--project.herokuapp.com/')
 
 const WelcomePage = (props) => {
     const hiAnimate = {
@@ -14,7 +15,7 @@ const WelcomePage = (props) => {
           preserveAspectRatio: "xMidYMid slice",
         },
     }
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         const newUser = e.target.username.value

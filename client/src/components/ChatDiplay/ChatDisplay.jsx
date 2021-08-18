@@ -1,11 +1,17 @@
 import backIcon from '../../assets/icons/backIcon.svg'
 import './ChatDisplay.scss'
+import io from "socket.io-client"
+
+const socket = io('wss://chat--project.herokuapp.com/')
 
 const ChatDisplay = (props) => {
 
     const backbtn = () => {
         props.history.push("/")
+        //socket.emit('disconnect', () => { console.log("user disconnected") })
     }
+
+
 
     return(
         <section className="display-box">

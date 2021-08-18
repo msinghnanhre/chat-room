@@ -4,7 +4,7 @@ import {Component} from 'react'
 import io from "socket.io-client"
 import './Message.scss';
 
-const socket = io('http://localhost:8080')
+const socket = io('wss://chat--project.herokuapp.com/')
 
 class App extends Component {
   state = {
@@ -29,14 +29,16 @@ class App extends Component {
     socket.emit("message", { name: username, message: userMessage, timestamp: timestamp })
     this.setState({
       chat: [...this.state.chat, { name: username, message: userMessage, timestamp:  timestamp }],
-    })  
+    })
+    socket.emit("example", "This is an example")
     e.target.reset()
   }
     
   render() {
+    //socket.emit("example", "this.state.chat")
     return (
       <section className="message-container">
-        <ChatDisplay id={this.state.myId} chat={this.state.chat.sort(chatMessage => chatMessage.timestamp)} welcome={this.state.welcomeMessage} {...this.props} />
+        <ChatDisplay  chat={this.state.chat.sort(chatMessage => chatMessage.timestamp)} welcome={this.state.welcomeMessage} {...this.props} />
         <ChatForm submitHandler={this.sendMessage} message={this.state.message} />
       </section>
     )

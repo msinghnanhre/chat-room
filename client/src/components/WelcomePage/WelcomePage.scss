@@ -1,11 +1,11 @@
 @use '../../partials/colors' as *;
 
 .welcome{
-    
+    height: 50vh;
 
     &__container{
-        width: 25rem;
-        height: 45rem;
+        width: 20rem;
+        height: 35rem;
         border-radius: 1rem;
         background-color: $primary-color;
         overflow: hidden;
